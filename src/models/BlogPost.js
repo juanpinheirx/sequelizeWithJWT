@@ -1,22 +1,28 @@
 module.exports = (sequelize, DataTypes) => {
   const BlogPost = sequelize.define('BlogPost', {
     id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
+      autoIncrement: true,
       primaryKey: true,
     },
     title: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     content: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     userId: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: 'blog_posts', key: 'id' }
+    },
+    published: {
+      type: DataTypes.DATE,
+    },
+    updated: {
+      type: DataTypes.DATE,
     },
   }, {
     tableName: 'blog_posts',
