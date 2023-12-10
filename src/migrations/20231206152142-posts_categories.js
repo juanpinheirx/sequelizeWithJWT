@@ -15,7 +15,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         // unique: true,
         // autoIncrement: true,
-        allowNull: false,
         references: {
           model: 'blog_posts',
           key: 'id',
@@ -23,7 +22,6 @@ module.exports = {
       },
       categoryId: {
         field: 'category_id',
-        allowNull: false,
         // unique: true,
         type: Sequelize.INTEGER,
         // autoIncrement: true,
@@ -32,16 +30,19 @@ module.exports = {
           key: 'id',
         },
       },
+    }, {
+      timestamps: false,
+      tableName: 'posts_categories',
     });
   },
 
-  async down(queryInterface, _Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add reverting commands here.
      *
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('posts_categories');
+    await queryInterface.dropTable('posts_categories', null, {});
   },
 };

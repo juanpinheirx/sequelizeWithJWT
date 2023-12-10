@@ -34,7 +34,7 @@ module.exports = {
         allowNull: false,
       }
     }, {
-      timestamps: false,
+      tableName: 'users',
     })
   },
 
@@ -45,6 +45,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('users')
+    await queryInterface.dropTable('users', null, {})
   }
 };

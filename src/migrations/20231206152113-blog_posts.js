@@ -15,7 +15,6 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
-        unique: true,
       },
       title: {
         type: Sequelize.STRING,
@@ -29,30 +28,25 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         field: 'user_id',
-        unique: true,
         // autoIncrement: true,
-        references: { model: 'blog_posts', key: 'id' }
+        references: { model: 'users', key: 'id' }
       },
       published: {
         type: Sequelize.DATE,
-        allowNull: false,
-        unique: true,
       },
       updated: {
         type: Sequelize.DATE,
-        allowNull: false,
-        unique: true,
-      }
+      },
     })
   },
 
-  async down (queryInterface, _Sequelize) {
+  async down (queryInterface, Sequelize) {
     /**
      * Add reverting commands here.
      *
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('blog_posts')
+    await queryInterface.dropTable('blog_posts', null, {})
   }
 };

@@ -14,24 +14,22 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         allowNull: false,
-        unique: true,
         autoIncrement: true,
       },
       name: {
         type: Sequelize.STRING(255),
-        unique: true,
         allowNull: false,
       }
     })
   },
 
-  async down (queryInterface, _Sequelize) {
+  async down (queryInterface, Sequelize) {
     /**
      * Add reverting commands here.
      *
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('categories');
+    await queryInterface.dropTable('categories', null, {});
   }
 };
