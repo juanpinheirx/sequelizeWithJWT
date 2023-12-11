@@ -1,14 +1,7 @@
 'use strict';
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('blog_posts', {
       id: {
         type: Sequelize.INTEGER,
@@ -37,16 +30,12 @@ module.exports = {
       updated: {
         type: Sequelize.DATE,
       },
+    }, {
+      tableName: 'blog_posts',
     })
   },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('blog_posts', null, {})
   }
 };

@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       references: {
         model: 'blog_posts',
         key: 'id',
+      }
       },
       categoryId: {
         field: 'category_id',
@@ -17,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id'
         }
       }
-    }
   }, {
     tableName: 'posts_categories',
     underscored: true,
