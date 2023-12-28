@@ -32,7 +32,13 @@ const createControl = async (req, res) => {
   return res.status(201).json({ token });
 };
 
+const getAllControl = async (req, res) => {
+  const findAll = await userService.getUsers();
+  return res.status(200).json(findAll);
+};
+
 module.exports = {
   loginControl,
   createControl,
+  getAllControl,
 };
