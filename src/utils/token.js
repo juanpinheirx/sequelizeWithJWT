@@ -4,7 +4,7 @@ const passwordJWT = process.env.JWT_SECRET || 'oin';
 
 const generateJwtToken = (payload) => {
   const token = jwt.sign(payload, passwordJWT, {
-    expiresIn: '10m',
+    expiresIn: '100m',
   });
   return token;
 };
