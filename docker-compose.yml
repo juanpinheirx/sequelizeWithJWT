@@ -57,8 +57,8 @@ services:
     ports:
       # Garanta que não haverá conflitos de porta com um banco que esteja
       # rodando localmente
-      - 3306:3306
-      - 33060:33060
+      - 5555:3306
+      - 4444:33060
     environment:
       MYSQL_ROOT_PASSWORD: password
     networks:
